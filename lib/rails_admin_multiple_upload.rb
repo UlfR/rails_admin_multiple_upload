@@ -28,15 +28,16 @@ module RailsAdmin
             @response = {}
 
             if request.post?
-              @album = Album.find_by_id(params[:album_id])
-              @album.update_attribute(:photos_attributes, params[:album][:photos_attributes])
+              satisfy_strong_params!
+              destenation = "#{@object.nested_attributes_options.map{|k, v| k}.first}_attributes"
+              @object.update_attribute(destenation.to_sym, params[@object.class.name.downcase.to_sym][destenation.to_sym])
 
               #obj = Model.find_by_id(params[:id])
               #obj.update_attributes(attributes)
 
               #@album = Album.new(params[:album])
               #if @album.save
-                #redirect_to action: "index"
+              #redirect_to action: "index"
               #end
 
               #results = @abstract_model.model.run_import(params)
@@ -52,4 +53,3 @@ module RailsAdmin
     end
   end
 end
-

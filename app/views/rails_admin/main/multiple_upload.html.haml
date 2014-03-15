@@ -1,10 +1,9 @@
 -#%h2 Custom action loaded and active
 -#=@abstract_model.inspect
--#=@object.inspect
 
-= simple_form_for(rails_admin.multiple_upload_url(@abstract_model.to_param), html: { multipart: true }) do |f|
-  = f.input :album_id, :as => :hidden, :input_html => { :name => "album_id", :value => @object.id }
-  = file_field_tag('album_photos_file', multiple: true, name: "album[photos_attributes][][file]")
+= simple_form_for(rails_admin.multiple_upload_url(@abstract_model.to_param, id: params[:id]), html: { multipart: true }) do |f|
+  = f.input "#{@object.class.name.downcase}_id".to_sym, :as => :hidden, :input_html => { :name => "#{@object.class.name.downcase}_id", :value => @object.id }
+  = file_field_tag("#{@object.nested_attributes_options.map{|k, v| k}.first}_file", multiple: true, name: "#{@object.class.name.downcase}[#{@object.nested_attributes_options.map{|k, v| k}.first}_attributes][][file]")
   %br
   %br
   = f.submit :submit, value: 'Upload', name: 'Upload', :class => 'btn btn-primary'
