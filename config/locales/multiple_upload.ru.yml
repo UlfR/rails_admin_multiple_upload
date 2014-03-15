@@ -1,0 +1,11 @@
+
+ru:
+  admin:
+    actions:
+      multiple_upload:
+        title: "Мультизагрузка"
+        menu: "Мультизагрузка для %{model_label} '%{object_label}'"
+        breadcrumb: "Мультизагрузка"
+        link: "Мультизагрузка"
+        bulk_link: "Мультизагрузка для %{model_label_plural}"
+        done: "Загружено"
