@@ -29,7 +29,7 @@ module RailsAdmin
 
 						if request.post?
 							dest   = "#{@object.nested_attributes_options.map{|k, v| k}.first}_attributes"
-							dest_s = dest_s.to_sym
+							dest_s = dest.to_sym
 
 							files  = params[@object.class.name.downcase.to_sym][dest_s]
 							files.each do | file |
