@@ -4,8 +4,8 @@ ru:
     actions:
       multiple_upload:
         title: "Мультизагрузка"
-        menu: "Мультизагрузка для %{model_label} '%{object_label}'"
+        menu: "Мультизагрузка"
         breadcrumb: "Мультизагрузка"
         link: "Мультизагрузка"
-        bulk_link: "Мультизагрузка для %{model_label_plural}"
+        bulk_link: "Мультизагрузка"
         done: "Загружено"
