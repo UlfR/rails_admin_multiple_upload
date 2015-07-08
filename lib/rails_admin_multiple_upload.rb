@@ -33,7 +33,7 @@ module RailsAdmin
 
 							files  = params[@object.class.name.downcase.to_sym][dest_s]
 							files.each do | file |
-								@object.docs << Doc.create(data: file[:file])
+								@object.photos << Photo.create(filename: file[:file])
 							end
 
 							redirect_to action: "index"
